@@ -15,12 +15,12 @@ class DiceRoller extends StatefulWidget {
 
 class _DiceRollerState extends State<DiceRoller> {
 
-  var activeDiceImage = 'assets/images/dice-1.png';
+  var activeDiceImage = Random().nextInt(6) + 1;
 
    void rollDice(){
     // TODO: Implement dice rolling functionality
     setState((){
-       activeDiceImage = 'assets/images/dice-${Random().nextInt(6) + 1}.png';  // Randomly select a number between 1 and 6
+       activeDiceImage = Random().nextInt(6) + 1;  // Randomly select a number between 1 and 6
        // Update the state to reflect the new image asset
        // setState(() {}); // This line is not needed when using setState with a function parameter
     });
@@ -39,7 +39,7 @@ class _DiceRollerState extends State<DiceRoller> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              activeDiceImage,
+              'assets/images/dice-$activeDiceImage.png',
               width: 200,
             ),
             const SizedBox(
